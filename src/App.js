@@ -6,8 +6,7 @@ import Battle from "./components/Battle"
 import Nav from "./components/Nav"
 export default function App() {
   const url = "https://herofights.herokuapp.com/hero"
-  //  "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json";
-  // "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=27a70ce24379397f4961c75f1043294d";
+
   const [heroes, setHeroes] = useState(null);
   const [myhero, setTeam] = useState([]);
   const [villian, setVillians] = useState([]);
