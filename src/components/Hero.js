@@ -9,7 +9,7 @@ const Hero = (props) => {
 
     return (
       <div className={`card ${hero.biography.alignment}`} key={index}>
-        {/* <img src={hero.images.sm} alt="small-profile-picture" /> */}
+        <img src={hero.images.sm} alt="small-profile-picture" />
         <div className="small-container">
           <h2>{hero.name}</h2>
           <h3>{hero.biography.fullName}</h3>
