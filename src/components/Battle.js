@@ -12,6 +12,9 @@ const Battle = (props) => {
 
 
 let doBattle = (hero) => {
+    if (props.fighters.length === 0){
+      return
+    }
     //Check for fighter
     // console.log(props.fighters[0])
     console.log(fighters.length)
