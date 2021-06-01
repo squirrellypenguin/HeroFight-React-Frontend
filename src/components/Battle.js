@@ -14,6 +14,7 @@ const Battle = (props) => {
 let doBattle = (hero) => {
     //Check for fighter
     // console.log(props.fighters[0])
+    console.log(fighters.length)
     let opponentSelector = randomizer(villian.length)
 
     let strength =  props.fighters[opponentSelector].powerstats.strength
@@ -41,10 +42,10 @@ let doBattle = (hero) => {
    
     // Annouce results and lift state
     if (winner === player){
-        alert("You have won!!!")
-        props.victory(1)
+        console.log("You have won!!!")
+        props.removeFromVillian(props.fighters[opponentSelector])
     } else {
-        alert("Better luck next time!")
+        console.log("Better luck next time!")
     }
   }
 
