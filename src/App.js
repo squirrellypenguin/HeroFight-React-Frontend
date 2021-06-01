@@ -46,7 +46,13 @@ export default function App() {
   }
 
 
-
+  const removeFromTeam = (pos) => {
+    console.log("pos", pos.id)
+    const art = myhero.filter((hero, index) => hero.id !== pos.id)
+    
+    console.log(art)
+    setTeam(art)
+  }
 
 
 
@@ -75,7 +81,7 @@ export default function App() {
         </Route>
       <div>
       <Route path="/battle/">
-      <Battle fighters={villian} heroes={myhero} removeFromVillian={removeFromVillian}/>
+      <Battle fighters={villian} heroes={myhero} removeFromTeam={removeFromTeam} removeFromVillian={removeFromVillian}/>
             </Route>
       <Route path="/hero/">
         {

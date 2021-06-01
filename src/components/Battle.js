@@ -46,6 +46,7 @@ let doBattle = (hero) => {
         props.removeFromVillian(props.fighters[opponentSelector])
     } else {
         console.log("Better luck next time!")
+        props.removeFromTeam(hero)
     }
   }
 
