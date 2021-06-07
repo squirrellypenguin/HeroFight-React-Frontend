@@ -1,7 +1,7 @@
 import React from 'react';
-import BattleLogic from './BattleLogic.js'
 const Battle = (props) => {
   console.log(props.fighters)
+  // [selectedHero, setSelectedHero] = React.useState[{}]
   let hero = props.heroes.map((hero, index) => {
     // console.log(hero.name);
 
@@ -19,7 +19,7 @@ const Battle = (props) => {
             <li>Power: {hero.powerstats.power}</li>
             <li>Speeed: {hero.powerstats.speed}</li>
             <li>Strength: {hero.powerstats.strength}</li>
-            {/* <button onClick={() => props.handleClick(hero)}>Select</button> */}
+            <button onClick={() => props.handleBattle(hero)}>Select</button>
           </ul>
         </div>
       </div>
@@ -65,7 +65,7 @@ const Battle = (props) => {
    {villian}
    </div>
    </div>
-   <BattleLogic fighters={props.fighters} heroes={props.heroes}/>
+ 
    </div> 
   )
 }

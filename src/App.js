@@ -4,9 +4,11 @@ import "./App.css";
 import Hero from "./components/Hero"
 import Battle from "./components/Battle"
 import Nav from "./components/Nav"
+import BattleLogic from "./components/BattleLogic"
+
 export default function App() {
   const url = "https://herofights.herokuapp.com/hero"
-
+  const [fight, setFight] = useState([]);
   const [heroes, setHeroes] = useState(null);
   const [myhero, setTeam] = useState([]);
   const [villian, setVillians] = useState([]);
@@ -21,13 +23,33 @@ export default function App() {
     return Math.floor(Math.random() * (opponentCount - 0) + 0);
   };
 
+
   const handleClick = async (input) => {
     setTimeout(
       () => setVillians([...villian, heroes[oppponetGenerator(heroes.length)]]),
       0
     );
     setTimeout(setTeam([...myhero, input]), 5000);
+     
+    // let  opponent = oppponetGenerator()
+    // let battleArray = []
+    // battleArray.push(player)
+    // battleArray.push(people[opponent])
+    // setFight(battleArray)
+  };
 
+  const handleBattle = async (input) => {
+
+    const fightarray = []
+    fightarray.push(input)
+    // console.log(fightarray)
+    const foo = oppponetGenerator(villian.length)
+    const bar = villian[foo]
+    fightarray.push(bar)
+    // fightarray.push[bar]
+    setFight(fightarray);
+    console.log(oppponetGenerator(villian.length))
+      // This will trigger the attacj=k
     // let  opponent = oppponetGenerator()
     // let battleArray = []
     // battleArray.push(player)
@@ -55,8 +77,9 @@ export default function App() {
         </Route>
       <div>
       <Route path="/battle/">
-      <Battle fighters={villian} heroes={myhero}/>
+      <Battle fighters={villian} heroes={myhero} handleBattle={handleBattle}/>
             </Route>
+            <BattleLogic fight={fight} />
       <Route path="/hero/">
         {
           //Check if receied
@@ -70,6 +93,7 @@ export default function App() {
       </Route> 
       </div>
       </Switch>
+   
     </div>
   );
 }

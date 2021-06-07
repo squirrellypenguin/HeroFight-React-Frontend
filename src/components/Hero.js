@@ -5,7 +5,7 @@ const Hero = (props) => {
   // const heroes = props.heroes;
 
   let hero = props.heroes.map((hero, index) => {
-    // console.log(hero.name);
+    
 
     return (
       <div className={`card ${hero.biography.alignment}`} key={index}>

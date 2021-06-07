@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BattleLogic = () => {
+const BattleLogic = (props) => {
+// let heroStrong = props.heroes.powerstats.combat
+// console.log(heroStrong)
+
   return (
     <div className="nav">
       <Link to="/">
