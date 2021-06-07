@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BattleLogic from './BattleLogic.js'
 const Battle = (props) => {
   console.log(props.fighters)
   let hero = props.heroes.map((hero, index) => {
@@ -65,6 +65,7 @@ const Battle = (props) => {
    {villian}
    </div>
    </div>
+   <BattleLogic fighters={props.fighters} heroes={props.heroes}/>
    </div> 
   )
 }
