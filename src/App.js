@@ -57,6 +57,26 @@ export default function App() {
     // setFight(battleArray)
   };
 
+  const removeFromVillian = (pos) => {
+    console.log(villian)
+    console.log("pos", pos.id)
+
+    const Cart = villian.filter((baddie, index) => baddie.id !== pos.id)
+    
+    console.log(Cart)
+    setVillians(Cart)
+  }
+
+
+  const removeFromTeam = (pos) => {
+    console.log("pos", pos.id)
+    const art = myhero.filter((hero, index) => hero.id !== pos.id)
+    
+    console.log(art)
+    setTeam(art)
+  }
+
+
   useEffect(() => {
     getHero(url);
   }, []);
@@ -77,7 +97,7 @@ export default function App() {
         </Route>
       <div>
       <Route path="/battle/">
-      <Battle fighters={villian} heroes={myhero} handleBattle={handleBattle} />
+      <Battle fighters={villian} heroes={myhero}  removeFromTeam={removeFromTeam} removeFromVillian={removeFromVillian} />
             </Route>
             <BattleLogic fight={fight} />
       <Route path="/hero/">
