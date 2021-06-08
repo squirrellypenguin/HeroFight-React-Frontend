@@ -77,7 +77,7 @@ export default function App() {
         </Route>
       <div>
       <Route path="/battle/">
-      <Battle fighters={villian} heroes={myhero} handleBattle={handleBattle}/>
+      <Battle fighters={villian} heroes={myhero} handleBattle={handleBattle} />
             </Route>
             <BattleLogic fight={fight} />
       <Route path="/hero/">
