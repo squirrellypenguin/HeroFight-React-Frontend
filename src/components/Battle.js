@@ -1,13 +1,70 @@
 import React from 'react';
+
 const Battle = (props) => {
-  console.log(props.fighters)
-  // [selectedHero, setSelectedHero] = React.useState[{}]
+
+ const [fighters, setFighters] = React.useState([])
+
+
+  const randomizer = (index) => {
+    return Math.floor(Math.random() * (index - 0) + 0);
+}
+ 
+
+
+let doBattle = (hero) => {
+    if (props.fighters.length === 0){
+      return
+    }
+    //Check for fighter
+    // console.log(props.fighters[0])
+    console.log(fighters.length)
+    let opponentSelector = randomizer(villian.length)
+
+    let strength =  props.fighters[opponentSelector].powerstats.strength
+    let speed =  props.fighters[opponentSelector].powerstats.speed
+    console.log(hero)
+    if ((hero.name === undefined)) {
+        return alert('Pick a fighter from index')
+    }
+    
+    // Generate battle math
+    let player = randomizer(hero.powerstats.strength * hero.powerstats.speed)
+    let opponent = randomizer(strength * speed)
+    console.log(opponent)
+    //Deal with irregualr data
+    console.log(player, opponent)
+
+    if (isNaN(player)) {
+        player = randomizer(100) * (randomizer(100) / 5)
+        
+    } else if (isNaN(opponent)) {
+        opponent = randomizer(100) * randomizer(100)
+        
+    }
+    let winner = Math.max(player, opponent)
+   
+    // Annouce results and lift state
+    if (winner === player){
+        console.log("You have won!!!")
+        props.removeFromVillian(props.fighters[opponentSelector])
+    } else {
+        console.log("Better luck next time!")
+        props.removeFromTeam(hero)
+    }
+  }
+
+if (isNaN(props.fight)){
+    console.log("_0v0_")
+}
+
+
+
   let hero = props.heroes.map((hero, index) => {
     // console.log(hero.name);
 
     return (
       <div className="hero" key={index}>
-        {/* <img src={hero.images.sm} alt="small-profile-picture" /> */}
+        <img src={hero.images.sm} alt="small-profile-picture" />
         <div className="small-container">
           <h2>{hero.name}</h2>
           <h3>{hero.biography.fullName}</h3>
@@ -19,7 +76,7 @@ const Battle = (props) => {
             <li>Power: {hero.powerstats.power}</li>
             <li>Speeed: {hero.powerstats.speed}</li>
             <li>Strength: {hero.powerstats.strength}</li>
-            <button onClick={() => props.handleBattle(hero)}>Select</button>
+            <button onClick={() => doBattle(hero)}>Select</button>
           </ul>
         </div>
       </div>
@@ -31,7 +88,7 @@ const Battle = (props) => {
 
     return (
       <div className="villian" key={index}>
-        {/* <img src={hero.images.sm} alt="small-profile-picture" /> */}
+        <img src={villian.images.sm} alt="small-profile-picture" />
         <div className="small-container">
           <h2>{villian.name}</h2>
           <h3>{villian.biography.fullName}</h3>
@@ -58,6 +115,7 @@ const Battle = (props) => {
     <div>
     <h2>Fight On!</h2>
    <div className="container">
+   {/* <button className="battle-button" onClick={doBattle}>Fight</button> */}
     <div className="flex">
       {hero}
       </div>
@@ -65,7 +123,6 @@ const Battle = (props) => {
    {villian}
    </div>
    </div>
- 
    </div> 
   )
 }
